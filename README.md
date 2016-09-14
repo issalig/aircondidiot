@@ -20,3 +20,8 @@ http://www.instructables.com/id/Arduino-Esp8266-Post-Data-to-Website/?ALLSTEPS
 https://github.com/SmingHub/Sming
 
 http://www.jpellerin.info/espui.html
+
+AREST
+https://openhomeautomation.net/control-a-lamp-remotely-using-the-esp8266-wifi-chip/
+
+https://github.com/marcoschwartz/aREST_UI
