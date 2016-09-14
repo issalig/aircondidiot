@@ -1,5 +1,5 @@
-# airconditiot
-AIR CONDItioning for the IOT
+# aircondidiot
+AIR CONDItioning anD IOT
 
 Goal
 ----
