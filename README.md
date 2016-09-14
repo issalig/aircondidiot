@@ -3,7 +3,7 @@ AIR CONDItioning for the IOT
 
 Goal
 ----
-To control my (General Air conditioner with and ESP8266)
+To control my (General air conditioner (model: ar-rcd1e) with and ESP8266)
 
 Links
 -----
@@ -25,3 +25,7 @@ AREST
 https://openhomeautomation.net/control-a-lamp-remotely-using-the-esp8266-wifi-chip/
 
 https://github.com/marcoschwartz/aREST_UI
+
+http://irdb.tk/decode/
+
+https://github.com/probonopd/arduino-infrared-pronto
