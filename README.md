@@ -32,6 +32,8 @@ https://github.com/probonopd/arduino-infrared-pronto
 
 http://www.hifi-remote.com/wiki/index.php?title=DecodeIR
 
+http://www.esp8266.com/viewtopic.php?f=11&t=5453
+
 Pinout
 https://github.com/esp8266/esp8266-wiki/wiki/Pin-definition
 
