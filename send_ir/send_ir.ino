@@ -4,13 +4,26 @@
 
 #include <Arduino.h>
 #include <FujitsuHeatpumpIR.h>
+#include <DHT.h>
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 
-const char* ssid = "sagem";
-const char* password = "superclave";
+#define DHTTYPE DHT11
+#define DHTPIN  13 //D7
+DHT dht(DHTPIN, DHTTYPE, 11); // 11 works fine for ESP8266
+float humidity, temp_f;  // Values read from sensor
+String webString="";     // String to display
+// Generally, you should use "unsigned long" for variables that hold time
+unsigned long previousMillis = 0;        // will store last temp was read
+const long interval = 2000;              // interval at which to read sensor
+ 
+//const char* ssid = "sagem";
+//const char* password = "superclave";
+
+const char* ssid = "Masgratec";
+const char* password = "Isolation?!";
 WiFiServer server(80);
 int ledPin = 5; //D1
 
@@ -46,7 +59,8 @@ void setup()
 {
   Serial.begin(9600);
   delay(500);
-
+  dht.begin();           // initialize temperature sensor
+ 
 // Connect to WiFi network
   Serial.println();
   Serial.println();
@@ -162,6 +176,27 @@ client.flush();
 
   // The client will actually be disconnected 
   // when the function returns and 'client' object is detroyed
+}
+
+void gettemperature() {
+  // Wait at least 2 seconds seconds between measurements.
+  // if the difference between the current time and last time you read
+  // the sensor is bigger than the interval you set, read the sensor
+  // Works better than delay for things happening elsewhere also
+  unsigned long currentMillis = millis();
  
+  if(currentMillis - previousMillis >= interval) {
+    // save the last time you read the sensor 
+    previousMillis = currentMillis;   
  
+    // Reading temperature for humidity takes about 250 milliseconds!
+    // Sensor readings may also be up to 2 seconds 'old' (it's a very slow sensor)
+    humidity = dht.readHumidity();          // Read humidity (percent)
+    temp_f = dht.readTemperature();     // Read temperature as Celsius
+    // Check if any reads failed and exit early (to try again).
+    if (isnan(humidity) || isnan(temp_f)) {
+      Serial.println("Failed to read from DHT sensor!");
+      return;
+    }
+  }
 }
