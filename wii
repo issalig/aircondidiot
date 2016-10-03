@@ -1,0 +1,9 @@
+https://github.com/retropie/retropie-setup/wiki/Wiimotes-with-classic-controllers
+http://forums.shoryuken.com/discussion/173781/basic-guide-to-mod-a-gamecube-controller-with-a-wii-classic-controller-pcb
+
+  Looking to the controller connector
+
+   |---|___|---|         
+   | 1   2   3 |         1 SCL   2 NC    3 GND        1 Black  2 NC   3 White  
+   | 4   5   6 |         4 3.3V  5 3.3V  6 SDA        4 Red    5 Red  6 Green
+   -------------
